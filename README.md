@@ -1,14 +1,14 @@
 GoFitPro - Personalized Fitness Platform
 
-Project Title:
+Project Title:-
 
 GoFitPro: A Personalized Fitness Platform with Real-Time Coaching & Gamification
 
-Project Idea:
+Project Idea:-
 
 GoFitPro is a fitness platform designed to provide users with customized workout plans, real-time coaching, and gamified engagement. The platform enables users to select a coach based on their preferred exercises, receive daily workout schedules and diet plans, and track their progress through a reward-based system. Users can also participate in virtual workout sessions (live or recorded) and compare their achievements on a leaderboard. The ultimate goal of GoFitPro is to ensure that users get comfortable and effective exercises while staying motivated.
 
-Key Features:
+Key Features:-
 
 Personalized workout & diet plans based on user goals.
 
@@ -22,7 +22,7 @@ User-friendly dashboard to track progress.
 
 Scalability: Plans for premium subscriptions & global expansion.
 
-Day-by-Day Capstone Journey Plan
+Day-by-Day Capstone Journey Plan :-
 
 Week 1: Research & Planning
 
@@ -72,6 +72,6 @@ Day 30: Deploy the application to a cloud platform (e.g., Vercel, AWS, or Heroku
 
 Day 31: Prepare the final report and presentation.
 
-Conclusion
+Conclusion:-
 
 GoFitPro is designed to bridge the gap between users and professional fitness coaching by offering personalized workout plans, real-time interactions, and engaging gamification elements. By integrating live workout sessions, rewards, and leaderboards, GoFitPro ensures users stay motivated and committed to their fitness goals. The structured approach to development ensures smooth implementation, while future scalability plans set the stage for long-term success. This project aims to make fitness more accessible, interactive, and enjoyable for all users.
