@@ -1,0 +1,19 @@
+meta {
+  name: Put
+  type: http
+  seq: 4
+}
+
+put {
+  url: http://localhost:5000/api/diets/681af27b0e652b27e118e6cf
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "name":"sree",
+    "calories":"500",
+    "time":"60min"
+  }
+}

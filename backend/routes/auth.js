@@ -1,6 +1,6 @@
 
 const express = require("express");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const User = require("../model/User");
 const sendToken = require("../utils/jwtToken");
 const ErrorHandler = require("../utils/ErrorHandler");
