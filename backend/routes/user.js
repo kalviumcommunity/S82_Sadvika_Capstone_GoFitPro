@@ -24,4 +24,27 @@ router.post("/", async (req, res) => {
   }
 });
 
+// PUT update a user by ID
+router.put("/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { name, email, password } = req.body;
+
+    const updatedUser = await User.findByIdAndUpdate(
+      id,
+      { name, email, password },
+      { new: true, runValidators: true }
+    );
+
+    if (!updatedUser) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    res.json(updatedUser);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+});
+
+
 module.exports = router;
