@@ -44,7 +44,7 @@ router.put('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
   try {
     await Diet.findByIdAndDelete(req.params.id);
-    res.json({ message: 'Diet deleted' });
+    res.json({ message: 'The Diet deleted' });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
