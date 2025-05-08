@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   try {
     const workout = await Workout.findById(req.params.id);
-    if (!workout) return res.status(404).json({ error: 'Workout not found' });
+    if (!workout) return res.status(404).json({ error: 'Workouts are not found' });
     res.json(workout);
   } catch (err) {
     res.status(500).json({ error: err.message });
