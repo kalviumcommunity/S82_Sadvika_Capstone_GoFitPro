@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   try {
     const coach = await Coach.findById(req.params.id);
-    if (!coach) return res.status(404).json({ error: 'Coach not found' });
+    if (!coach) return res.status(404).json({ error: 'Coaches are not found' });
     res.json(coach);
   } catch (err) {
     res.status(500).json({ error: err.message });
