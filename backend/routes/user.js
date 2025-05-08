@@ -37,7 +37,7 @@ router.put("/:id", async (req, res) => {
     );
 
     if (!updatedUser) {
-      return res.status(404).json({ message: "User not found" });
+      return res.status(404).json({ message: "User is not found" });
     }
 
     res.json(updatedUser);
