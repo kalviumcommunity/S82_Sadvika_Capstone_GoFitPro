@@ -1,122 +1,77 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { FaEnvelope, FaLock, FaUser } from "react-icons/fa";
 
-const Register = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-  });
+const Signup = () => {
+  const [form, setForm] = useState({ name: "", email: "", password: "" });
 
-  const [errors, setErrors] = useState({});
-
-  const validate = () => {
-    const newErrors = {};
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    if (!formData.name.trim()) newErrors.name = "Name is required";
-    if (!formData.email) newErrors.email = "Email is required";
-    else if (!emailRegex.test(formData.email)) newErrors.email = "Invalid email address";
-
-    if (!formData.password) newErrors.password = "Password is required";
-    else if (formData.password.length < 6)
-      newErrors.password = "Password must be at least 6 characters";
-
-    if (!formData.confirmPassword)
-      newErrors.confirmPassword = "Please confirm your password";
-    else if (formData.confirmPassword !== formData.password)
-      newErrors.confirmPassword = "Passwords do not match";
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
+  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (validate()) {
-      console.log("Registering user...");
-      console.log(formData);
-      // Add backend integration or redirect here
-    }
+    alert("Signup successful! (Demo)");
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-tr from-blue-100 to-blue-300 px-4">
-      <div className="w-full max-w-md bg-white shadow-xl rounded-2xl p-8">
-        <h2 className="text-3xl font-bold text-center text-blue-800 mb-6">
-          GoFitPro Register 🏋️‍♀️
-        </h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label className="block text-gray-700 font-semibold mb-1">Name</label>
+    <div className="min-h-screen bg-gradient-to-br from-[#0f0c29] via-[#302b63] to-[#24243e] flex justify-center items-center px-4">
+      <div className="bg-white/10 backdrop-blur-md shadow-2xl rounded-3xl p-10 max-w-md w-full border border-white/20">
+        <h1 className="text-4xl font-extrabold text-white text-center mb-4">
+          Join GoFitPro 💪
+        </h1>
+        <p className="text-gray-200 text-center mb-8">
+          Create your account and start your fitness journey
+        </p>
+
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="relative">
+            <FaUser className="absolute left-3 top-3 text-purple-400" />
             <input
               type="text"
               name="name"
-              placeholder="Enter your name"
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              value={formData.name}
+              placeholder="Full Name"
+              value={form.name}
               onChange={handleChange}
+              required
+              className="w-full pl-10 pr-4 py-3 rounded-xl border border-purple-600/40 bg-white/20 text-white placeholder-gray-200 focus:ring-2 focus:ring-purple-400 focus:outline-none"
             />
-            {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
           </div>
 
-          <div>
-            <label className="block text-gray-700 font-semibold mb-1">Email</label>
+          <div className="relative">
+            <FaEnvelope className="absolute left-3 top-3 text-purple-400" />
             <input
               type="email"
               name="email"
-              placeholder="Enter your email"
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              value={formData.email}
+              placeholder="Email"
+              value={form.email}
               onChange={handleChange}
+              required
+              className="w-full pl-10 pr-4 py-3 rounded-xl border border-purple-600/40 bg-white/20 text-white placeholder-gray-200 focus:ring-2 focus:ring-purple-400 focus:outline-none"
             />
-            {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
           </div>
 
-          <div>
-            <label className="block text-gray-700 font-semibold mb-1">Password</label>
+          <div className="relative">
+            <FaLock className="absolute left-3 top-3 text-purple-400" />
             <input
               type="password"
               name="password"
-              placeholder="Create a password"
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              value={formData.password}
+              placeholder="Password"
+              value={form.password}
               onChange={handleChange}
+              required
+              className="w-full pl-10 pr-4 py-3 rounded-xl border border-purple-600/40 bg-white/20 text-white placeholder-gray-200 focus:ring-2 focus:ring-purple-400 focus:outline-none"
             />
-            {errors.password && <p className="text-red-500 text-sm mt-1">{errors.password}</p>}
-          </div>
-
-          <div>
-            <label className="block text-gray-700 font-semibold mb-1">Confirm Password</label>
-            <input
-              type="password"
-              name="confirmPassword"
-              placeholder="Re-enter your password"
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              value={formData.confirmPassword}
-              onChange={handleChange}
-            />
-            {errors.confirmPassword && (
-              <p className="text-red-500 text-sm mt-1">{errors.confirmPassword}</p>
-            )}
           </div>
 
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition"
+            className="w-full bg-gradient-to-r from-purple-600 to-indigo-500 text-white py-3 rounded-xl font-semibold hover:scale-105 transition duration-300 shadow-lg"
           >
-            Register
+            Sign Up
           </button>
         </form>
 
-        <p className="mt-6 text-center text-gray-600">
+        <p className="text-center text-gray-200 mt-6">
           Already have an account?{" "}
-          <Link to="/login" className="text-blue-600 hover:underline font-medium">
+          <Link to="/login" className="text-indigo-400 font-semibold hover:underline">
             Login
           </Link>
         </p>
@@ -125,5 +80,4 @@ const Register = () => {
   );
 };
 
-export default Register;
-
+export default Signup;
