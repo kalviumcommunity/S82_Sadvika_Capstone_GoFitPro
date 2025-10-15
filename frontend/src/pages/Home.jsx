@@ -1,44 +1,72 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
+import heroImg from "../assets/hero.png"; // 💡 Replace with your workout image path
 
 const Home = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-100 to-blue-300 flex flex-col justify-center items-center text-center px-4">
-      <h1 className="text-5xl font-extrabold text-blue-900 mb-4">
-        Welcome to <span className="text-indigo-700">GoFitPro</span> 💥🏋️‍♂️🚀
-      </h1>
-      
-      <p className="text-lg text-gray-800 max-w-2xl mb-6">
-        Your all-in-one fitness companion! Get 💬 real-time coaching, 💪 personalized workouts,  
-        and 🥗 diet plans — all designed to fit <span className="font-semibold">your style & comfort</span>.
-      </p>
+    <div
+      className="relative min-h-screen flex flex-col items-center justify-center text-center text-white overflow-hidden"
+      style={{
+        backgroundImage: `url(${heroImg})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-indigo-900/70 to-blue-900/70"></div>
 
-      <div className="mb-8">
-        <p className="text-md text-gray-700">
-          ⭐ Join thousands transforming their fitness journey! <br />
-          🔥 Track your progress, earn rewards, and smash your goals! <br />
-          💬 Chat with expert coaches anytime!
+      {/* Navbar */}
+      <nav className="absolute top-0 w-full flex justify-between items-center px-8 py-6 z-20 bg-transparent">
+        <h1 className="text-2xl font-extrabold text-white tracking-wider">
+          Go<span className="text-indigo-500">Fit</span>Pro
+        </h1>
+        <div className="hidden md:flex items-center space-x-8 text-gray-200 font-medium">
+          <Link to="/" className="hover:text-indigo-400 transition">Home</Link>
+          <Link to="/about" className="hover:text-indigo-400 transition">About</Link>
+          <Link to="/workout" className="hover:text-indigo-400 transition">Workouts</Link>
+          <Link to="/plans" className="hover:text-indigo-400 transition">Plans</Link>
+          <Link to="/contact" className="hover:text-indigo-400 transition">Contact</Link>
+        </div>
+        <div className="flex items-center space-x-4">
+          <Link
+            to="/membership"
+            className="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2 rounded-full font-semibold shadow-lg transition"
+          >
+            Membership
+          </Link>
+          <Link
+            to="/login"
+            className="border border-indigo-400 text-indigo-300 hover:bg-indigo-700/30 px-5 py-2 rounded-full font-semibold transition"
+          >
+            Log In
+          </Link>
+        </div>
+      </nav>
+
+      {/* Hero Content */}
+      <div className="z-10 px-6 md:px-0 max-w-3xl mt-24">
+        <p className="text-lg font-medium mb-3 text-indigo-300">
+          GoFitPro – Personalized Fitness Coaching
         </p>
-      </div>
-
-      <div className="space-x-4">
-        <Link
-          to="/login"
-          className="bg-indigo-600 text-white px-6 py-3 rounded-full text-lg hover:bg-indigo-700 transition shadow-lg"
-        >
-          👉 Login
-        </Link>
+        <h1 className="text-5xl sm:text-6xl font-extrabold leading-tight mb-6">
+          Where <span className="text-indigo-400">Fitness</span> Becomes<br />Your Lifestyle
+        </h1>
+        <p className="text-lg text-gray-200 mb-8">
+          Join your favorite coaches, complete daily goals, and transform your fitness journey — your way.
+        </p>
         <Link
           to="/register"
-          className="bg-white border-2 border-indigo-600 text-indigo-700 px-6 py-3 rounded-full text-lg hover:bg-indigo-100 transition shadow-lg"
+          className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-8 py-3 rounded-full shadow-md transition-transform hover:scale-105"
         >
-          🚀 Register
+         <button className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white font-semibold px-8 py-3 rounded-full shadow-lg hover:scale-105 hover:shadow-indigo-500/50 transition duration-300">
+  Get Started
+</button>
+
         </Link>
       </div>
 
-      <footer className="mt-12 text-sm text-gray-600">
-        💡 Fitness made fun and personalized — just for you!
-      </footer>
+      {/* Floating Side Button */}
+      
     </div>
   );
 };
